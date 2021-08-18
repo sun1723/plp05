@@ -37,7 +37,7 @@ export default class ProductInput extends Component {
 					</div>
 				</div>
 				<div className='sort-field'>
-					<label className='sort-field-name'for='dropdown'>Sort By:</label>
+					<label className='sort-field-name' htmlFor='dropdown'>Sort By:</label>
 					<div className='sort-field-input'>
 						<select id="dropdown" value={this.state.sort} onChange={this.handleSortingChange.bind(this)} >
 							<option value="1">1</option>

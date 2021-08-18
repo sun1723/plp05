@@ -4,7 +4,7 @@ import ProductList from './ProductList'
 
 class PlpApp extends Component {
 	handleSubmitSearch(content){
-		console.log(content.keyword)
+		console.log(content)
 	}
 	render() {
 		return (
