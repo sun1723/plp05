@@ -9,7 +9,7 @@ export default class ProductInput extends Component {
 		}
 	}
 
-	handleKeywordSearch(event) {
+	handleKeyword(event) {
 		this.setState({
 			keyword:event.target.value,
 		})
@@ -19,14 +19,21 @@ export default class ProductInput extends Component {
 			sort:event.target.value,
 		})
 	}
+	handleSubmitSearch(){
+		if(this.props.onSubmit){
+			const {keyword,sort} = this.state
+			this.props.onSubmit({keyword,sort})
+		}
+		this.setState({keyword:''})
+	}
 	render() {
 		return (
 			<div className='product-input'>
 				<div className='search-field'>
 					<span className='search-field-name'>Search: </span>
 					<div className='search-field-name-input'>
-						<input value={this.state.keyword} onChange={this.handleKeywordSearch.bind(this)} />
-						<button>Search</button>
+						<input value={this.state.keyword} onChange={this.handleKeyword.bind(this)} />
+						<button onClick={this.handleSubmitSearch.bind(this)}>Search</button>
 					</div>
 				</div>
 				<div className='sort-field'>

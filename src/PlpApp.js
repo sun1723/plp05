@@ -3,10 +3,13 @@ import ProductInput from './ProductInput'
 import ProductList from './ProductList'
 
 class PlpApp extends Component {
+	handleSubmitSearch(content){
+		console.log(content.keyword)
+	}
 	render() {
 		return (
 			<div className='wrapper'>
-				<ProductInput />
+				<ProductInput onSubmit={this.handleSubmitSearch.bind(this)}/>
 				<ProductList />
 			</div>
 		)
