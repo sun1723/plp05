@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
+import Product from './Product'
 
 export default class ProductList extends Component {
 	render() {
 		const products=[
-			{name:'1',color:'black'},
-			{name:'2',color:'yellow'}
+			{title:'1',color:'black'},
+			{title:'2',color:'yellow'}
 		]
 		return (
 			<div>
 				{
 					products.map((product,i) =>{
 						return (
-							<div key={i}>
-								{product.name}:{product.color}
-							</div>
+							<Product product={product} key={i} />
 
 						)
 					})
