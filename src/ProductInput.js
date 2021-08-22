@@ -5,7 +5,7 @@ export default class ProductInput extends Component {
 		super()
 		this.state={
 			keyword:'',
-			sort:''
+			sort:'weq'
 		}
 	}
 
@@ -15,17 +15,28 @@ export default class ProductInput extends Component {
 		})
 	}
 	handleSortingChange(event) {
+		// console.log(event.target.value);
+		// this.setState({
+		// 	sort:event.target.value,
+		// })
+		// console.log(this.state.sort);
+		if(this.props.onSubmitSort)
+		{
+			const sort = event.target.value
+			this.props.onSubmitSort(sort)
+		}
 		this.setState({
 			sort:event.target.value,
 		})
 	}
 	handleSubmitSearch(){
 		if(this.props.onSubmit){
-			const {keyword,sort} = this.state
-			this.props.onSubmit({keyword,sort})
+			const keyword = this.state.keyword
+			this.props.onSubmit(keyword)
 		}
 		this.setState({keyword:''})
 	}
+	
 	render() {
 		return (
 			<div className='product-input'>

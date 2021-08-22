@@ -8,10 +8,10 @@ export default class Product extends Component {
 					<img />
 				</div>
 				<div className='product-title'>
-					<span>{this.props.product.title}</span>
+					<span>{this.props.product.goodsTitle}</span>
 				</div>
 				<div className='product-price'>
-					<span>$ {this.props.product.color}</span>
+					<span>$ {this.props.product.displayPrice}</span>
 				</div>
 			</div>
 		)
