@@ -5,6 +5,10 @@ export default class ProductList extends Component {
 	static defaultProps = {
 		products: []
 	}
+
+	constructor(){
+		
+	}
 	render() {
 		return (
 			<div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
+
 export default class ProductInput extends Component {
 	constructor( ){
 		super()
 		this.state={
 			keyword:'',
-			sort:'weq'
+			sort:''
 		}
 	}
 
@@ -51,8 +52,8 @@ export default class ProductInput extends Component {
 					<label className='sort-field-name' htmlFor='dropdown'>Sort By:</label>
 					<div className='sort-field-input'>
 						<select id="dropdown" value={this.state.sort} onChange={this.handleSortingChange.bind(this)} >
-							<option value="1">1</option>
-							<option value="2">2</option>
+							<option value="PriceLowtoHigh">Price Low to High</option>
+							<option value="PriceHightoLow">Price High to Low</option>
 						</select>
 					</div>
 				</div>
