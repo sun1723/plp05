@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 
 export default class ProductInput extends Component {
+	static propTypes = {
+		onSubmit: PropTypes.func
+	}
 	constructor( ){
 		super()
 		this.state={
 			keyword:'',
 			sort:''
 		}
+	}
+	componentDidMount () {
+		this.input.focus()
 	}
 
 	handleKeyword(event) {
@@ -44,7 +51,7 @@ export default class ProductInput extends Component {
 				<div className='search-field'>
 					<span className='search-field-name'>Search: </span>
 					<div className='search-field-name-input'>
-						<input value={this.state.keyword} onChange={this.handleKeyword.bind(this)} />
+						<input ref={(input)=>this.input = input} value={this.state.keyword} onChange={this.handleKeyword.bind(this)} />
 						<button onClick={this.handleSubmitSearch.bind(this)}>Search</button>
 					</div>
 				</div>

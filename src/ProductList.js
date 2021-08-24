@@ -6,9 +6,6 @@ export default class ProductList extends Component {
 		products: []
 	}
 
-	constructor(){
-		
-	}
 	render() {
 		return (
 			<div>
