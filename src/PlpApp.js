@@ -35,7 +35,21 @@ class PlpApp extends Component {
       });
   }
   handleSort(sort) {
-    console.log(sort);
+    switch(sort){
+      case "PriceLowtoHigh":
+        let LowtoHigh = this.state.products.sort((a,b)=>(a.displayPrice-b.displayPrice));
+        this.setState({
+          products: LowtoHigh
+        })
+        break;
+      
+      case "PriceHightoLow":
+        let HightoLow = this.state.products.sort((a,b)=>(b.displayPrice-a.displayPrice));
+        this.setState({
+          products: HightoLow
+        })
+        break;
+    }
   }
   render() {
     return (
