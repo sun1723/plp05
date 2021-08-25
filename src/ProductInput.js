@@ -13,10 +13,26 @@ export default class ProductInput extends Component {
 			sort:''
 		}
 	}
+	componentWillMount(){
+
+	}
+	_loadkeyword(){
+		const keyword = localStorage.getItem('keyword')
+		if(keyword){
+			this.setState({
+				
+			})
+		}
+	}
 	componentDidMount () {
 		this.input.focus()
 	}
-
+	_saveKeyword(keyword){
+		localStorage.setItem('keyword',keyword)
+	}
+	handleSearchBlur(event){
+		this._saveKeyword(event.target.value)
+	}
 	handleKeyword(event) {
 		this.setState({
 			keyword:event.target.value,
@@ -51,7 +67,7 @@ export default class ProductInput extends Component {
 				<div className='search-field'>
 					<span className='search-field-name'>Search: </span>
 					<div className='search-field-name-input'>
-						<input ref={(input)=>this.input = input} value={this.state.keyword} onChange={this.handleKeyword.bind(this)} />
+						<input ref={(input)=>this.input = input} value={this.state.keyword} onBlur={this.handleSearchBlur.bind(this)} onChange={this.handleKeyword.bind(this)} />
 						<button onClick={this.handleSubmitSearch.bind(this)}>Search</button>
 					</div>
 				</div>
