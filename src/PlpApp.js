@@ -44,7 +44,7 @@ class PlpApp extends Component {
           onSubmit={this.handleSubmitSearch.bind(this)}
           onSubmitSort={this.handleSort.bind(this)}
         />
-        <ProductList />
+        <ProductList products={this.state.products}/>
       </div>
     );
   }
