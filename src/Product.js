@@ -5,7 +5,7 @@ export default class Product extends Component {
 		return (
 			<div className="product">
 				<div className='product-img'>
-					<img />
+					<img src={this.props.product.goodsImage}/>
 				</div>
 				<div className='product-title'>
 					<span>{this.props.product.goodsTitle}</span>

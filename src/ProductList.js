@@ -8,7 +8,7 @@ export default class ProductList extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="productlist">
 				{
 					this.props.products.map((product,i) =>{
 						return (
