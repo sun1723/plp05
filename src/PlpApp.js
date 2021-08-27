@@ -34,13 +34,15 @@ class PlpApp extends Component {
         console.error(error);
       });
   }
-    dispatch (action) {
+    stateChanger (action) {
+      // console.log(state);
       switch(action.type) {
         case "PriceLowtoHigh":
         let LowtoHigh = this.state.products.sort((a,b)=>(a.displayPrice-b.displayPrice));
         this.setState({
-          products: LowtoHigh
+          products : LowtoHigh
         })
+        
         break;
       
       case "PriceHightoLow":
@@ -48,8 +50,15 @@ class PlpApp extends Component {
         this.setState({
           products: HightoLow
         })
+        
         break;
       }
+    }
+    createStore(stateChanger){
+      
+      // const getState = () => state;
+      const dispatch = (action)=>stateChanger(action)
+      return{dispatch}
     }
   handleSort(sort) {
     // switch(sort){
@@ -67,9 +76,11 @@ class PlpApp extends Component {
     //     })
     //     break;
     // }
-    this.dispatch({type:sort})
+    const store = this.createStore(this.stateChanger.bind(this))
+    store.dispatch({type:sort})
   }
   render() {
+    
     return (
       <div className='wrapper'>
         <ProductInput
