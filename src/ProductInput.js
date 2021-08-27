@@ -75,7 +75,6 @@ export default class ProductInput extends Component {
 					<label className='sort-field-name' htmlFor='dropdown'>Sort By:</label>
 					<div className='sort-field-input'>
 						<select id="dropdown" value={this.state.sort} onChange={this.handleSortingChange.bind(this)} >
-						<option value="-">-</option>
 							<option value="PriceLowtoHigh">Price Low to High</option>
 							<option value="PriceHightoLow">Price High to Low</option>
 						</select>
