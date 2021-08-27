@@ -34,9 +34,9 @@ class PlpApp extends Component {
         console.error(error);
       });
   }
-  handleSort(sort) {
-    switch(sort){
-      case "PriceLowtoHigh":
+    dispatch (action) {
+      switch(action.type) {
+        case "PriceLowtoHigh":
         let LowtoHigh = this.state.products.sort((a,b)=>(a.displayPrice-b.displayPrice));
         this.setState({
           products: LowtoHigh
@@ -49,7 +49,25 @@ class PlpApp extends Component {
           products: HightoLow
         })
         break;
+      }
     }
+  handleSort(sort) {
+    // switch(sort){
+    //   case "PriceLowtoHigh":
+    //     let LowtoHigh = this.state.products.sort((a,b)=>(a.displayPrice-b.displayPrice));
+    //     this.setState({
+    //       products: LowtoHigh
+    //     })
+    //     break;
+      
+    //   case "PriceHightoLow":
+    //     let HightoLow = this.state.products.sort((a,b)=>(b.displayPrice-a.displayPrice));
+    //     this.setState({
+    //       products: HightoLow
+    //     })
+    //     break;
+    // }
+    this.dispatch({type:sort})
   }
   render() {
     return (
