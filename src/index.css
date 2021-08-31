@@ -9,7 +9,8 @@
 .productlist{
   display:flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  
 }
 div.product{
     display:inline-block;
