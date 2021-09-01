@@ -2,13 +2,39 @@ import React, { Component } from "react";
 import ProductInput from "./ProductInput";
 import ProductList from "./ProductList";
 import axios from "axios";
+import TopSearch from "./TopSearch";
 
 class PlpApp extends Component {
   constructor() {
     super();
     this.state = {
       products: [],
+      topsearches:[]
     };
+  }
+  componentWillMount(){
+     var that = this;
+    const options = {
+      method: "GET",
+      url: "https://gearbest.p.rapidapi.com/get_top_searches",
+      params: {  page: "1" },
+      headers: {
+        "x-rapidapi-host": process.env.REACT_APP_HOST,
+        "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data)
+	    that.setState({
+		    topsearches:response.data
+	    })  
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
   handleSubmitSearch(content) {
     var that = this;
@@ -87,7 +113,9 @@ class PlpApp extends Component {
           onSubmit={this.handleSubmitSearch.bind(this)}
           onSubmitSort={this.handleSort.bind(this)}
         />
+        <TopSearch topsearches={this.state.topsearches}/>
         <ProductList products={this.state.products}/>
+        
       </div>
     );
   }
